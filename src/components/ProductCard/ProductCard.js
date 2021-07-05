@@ -21,7 +21,8 @@ const ProductCard = () => {
                         <div className="row">
                             <div className="col-6">
                                 <div className="product__price">
-                                    ${product.price}
+                                    
+                                    <span className="actualPrice">${product.price}</span>
                                     <span className="discount">{product.discount}%</span>
                                 </div>
                             </div>

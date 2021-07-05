@@ -19,13 +19,17 @@ const initialState ={
         {id: 9, name: 'Male jacket for all season', image: '9.jpg', price: 95, discount: 4, discountPrice: 95  - 4 / 100 * 95, quantity: 1, desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},   
 
         {id: 10, name: 'Male winter jacket', image: '10.jpg', price: 120, discount: 3, discountPrice: 120  - 3 / 100 * 120, quantity: 1, desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur, quo nostrum natus dolor obcaecati reprehenderit reiciendis, repellat omnis voluptates et, dolorem maxime iure sapiente laboriosam quia! Aliquam, vel soluta?"},  
-    ]
+    ],
+    product: {}
+
 }
 
-const ProductRuderer = (state = initialState, action) => {
+const ProductReducer = (state = initialState, action) => {
     switch (action.type){
-        default: 
+        case "PRODUCT":
+        return{...state, product: state.products.find(product => product.id === (action.id))}
+        default:
         return state;
     }
 }
-export default ProductRuderer;
+export default ProductReducer;

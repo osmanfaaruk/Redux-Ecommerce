@@ -41,8 +41,13 @@
 }
 .product__price .discount {
 	color: silver;
-	font-weight: 400;
+	font-weight: 100;
 	font-size: 13px;
+}
+
+.actualPrice {
+	text-decoration: line-through;
+	font-size: 18px;
 }
 @media (max-width: 765px) {
 	.container {
