@@ -45,7 +45,7 @@ const CardDetails = () => {
                     <span className="dec" onClick={decQuantity}><BsDash/></span>
                     <span className="quantity">{quantity}</span>
                     <span className="inc" onClick={()=> setQuantity(quantity+1)}><BsPlus/></span>
-                    <button className="btn-default">Add to cart</button>
+                    <button className="btn-default" onClick={() => dispatch({type: 'ADD_TO_CART', payload:{product, quantity}})}>Add to cart</button>
                     </div> 
                 </div>
                 <div className="details__P">
