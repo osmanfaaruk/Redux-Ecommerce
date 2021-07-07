@@ -39,7 +39,7 @@ const OrderedItem = () => {
                             </div>
 
                             <div className="col-2">
-                            <div className="details__info">
+                            <div className="details__info cart__incDec">
                     <div className="details__incDec">
                     <span className="dec" onClick={()=> dispatch({type: 'DEC', payload: product.id})}><BsDash/></span>
                     <span className="quantity">{product.quantity}</span>
@@ -61,7 +61,7 @@ const OrderedItem = () => {
                         </div>    
                     )}
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 summary-col">
                         <div className="summary">
                             <div className="summary__heading">
                                 Summary
