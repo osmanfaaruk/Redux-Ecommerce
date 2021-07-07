@@ -5,7 +5,7 @@ import { BsDash, BsPlus } from "react-icons/bs";
 import { BsReverseBackspaceReverse } from "react-icons/bs";
 
 const OrderedItem = () => {
-    const {products} = useSelector(state => state.CartReducer);
+    const {products, totalQuantities, totalPrice} = useSelector(state => state.CartReducer);
     const dispatch = useDispatch();
     return (
         <div className="cart">
@@ -41,9 +41,9 @@ const OrderedItem = () => {
                             <div className="col-2">
                             <div className="details__info">
                     <div className="details__incDec">
-                    <span className="dec" onClick={()=> dispatch({type: 'INC', payload: product.id})}><BsDash/></span>
+                    <span className="dec" onClick={()=> dispatch({type: 'DEC', payload: product.id})}><BsDash/></span>
                     <span className="quantity">{product.quantity}</span>
-                    <span className="inc" ><BsPlus/></span>
+                    <span className="inc" onClick={()=> dispatch({type: 'INC', payload: product.id})}><BsPlus/></span>
                     {/* <button className="btn-default" >Add to cart</button> */}
                     </div> 
                 </div>
@@ -54,7 +54,7 @@ const OrderedItem = () => {
                                 </div>
                             </div>
                             <div className="col-2">
-                                <div className="cart__remove">
+                                <div className="cart__remove" onClick={()=> dispatch({type: 'REMOVE', payload: product.id})}>
                                 <BsReverseBackspaceReverse/>
                                 </div>
                             </div>
@@ -62,7 +62,28 @@ const OrderedItem = () => {
                     )}
                     </div>
                     <div className="col-3">
-                        Summary
+                        <div className="summary">
+                            <div className="summary__heading">
+                                Summary
+                            </div>
+                            <div className="summary__details">
+                                <div className="row mb-10">
+                                    <div className="col-6">
+                                        Total Items: 
+                                    </div>
+                                    <div className="col-6">{totalQuantities}</div>
+                                </div>
+                                <div className="row mb-10">
+                                    <div className="col-6">
+                                        Total Price
+                                    </div>
+                                    <div className="col-6">
+                                        ${totalPrice}
+                                    </div>
+                                </div>
+                                <button type="button" className="checkout">Checkout</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 </> : "Your cart is empty"}
